@@ -1,19 +1,30 @@
+<?php  require 'db/Database.php'?>
+<?php  require 'db/ProductsDB.php'?>
+
+<?php
+
+$productsDB = new ProductsDB();
+$products = $productsDB->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
     <title>Driedmeats</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./boostrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="./boostrap/js/bootstrap.bundle.min.js"></script>
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body style="color: white">
-    <nav class="navbar navbar-dark navbar-expand-sm sticky-top h4" style="background: #AD2E24;">
+    <nav class="navbar navbar-dark navbar-expand-sm sticky-top bg-primary"">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                Logo
+                <img src="res/logo.png" alt="logo">
             </a>
-            <ul class="navbar-nav d-flex " style="">
+            <ul class="navbar-nav d-flex h5" style="">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Kategorie</a>
                     <ul class="dropdown-menu">
@@ -37,75 +48,23 @@
     </nav>
 
     <div class="d-flex w-75 m-auto min-vh-100 justify-content-center flex-wrap">
-            <div class="card m-5" style="width:20%;height: 400px">
-                <img class="card-img-top" src="./res/test.jpeg" alt="Card image">
+        <?php foreach ($products as $product):?>
+            <div class="card m-5" style="width:300px;height: 500px">
+                <img class="card-img-top" src="<?php echo $product['img_link'] ?>" alt="Náhled produktu">
                 <div class="card-body" style="color: black">
-                    <h4 class="card-title">Jerky1</h4>
-                    <p class="card-text">Jsou fakt dobrý</p>
-                    <h5>40 g</h5>
-                    <h4>50 Kč</h4>
-                    <a href="#" class="btn btn-primary" style="background: #AD2E24;">Přidat do košíku</a>
+                    <h4 class="card-title"><?php echo $product['prod_name'] ?></h4>
+                    <p class="card-text"><?php echo $product['description'] ?></p>
+                    <h5><?php echo $product['size'] ?></h5>
+                    <h4><?php echo $product['price'] ?> Kč</h4>
+                    <a href="#" class="btn btn-primary bg-primary border-0">Přidat do košíku</a>
                 </div>
             </div>
-
-        <div class="card m-5" style="width:20%;height: 400px">
-            <img class="card-img-top" src="./res/test.jpeg" alt="Card image">
-            <div class="card-body" style="color: black">
-                <h4 class="card-title">Jerky1</h4>
-                <p class="card-text">Jsou fakt dobrý</p>
-                <h5>40 g</h5>
-                <h4>50 Kč</h4>
-                <a href="#" class="btn btn-primary" style="background: #AD2E24;">Přidat do košíku</a>
-            </div>
-        </div>
-        <div class="card m-5" style="width:20%;height: 400px">
-            <img class="card-img-top" src="./res/test.jpeg" alt="Card image">
-            <div class="card-body" style="color: black">
-                <h4 class="card-title">Jerky1</h4>
-                <p class="card-text">Jsou fakt dobrý</p>
-                <h5>40 g</h5>
-                <h4>50 Kč</h4>
-                <a href="#" class="btn btn-primary" style="background: #AD2E24;">Přidat do košíku</a>
-            </div>
-        </div>
-        <div class="card m-5" style="width:20%;height: 400px">
-            <img class="card-img-top" src="./res/test.jpeg" alt="Card image">
-            <div class="card-body" style="color: black">
-                <h4 class="card-title">Jerky1</h4>
-                <p class="card-text">Jsou fakt dobrý</p>
-                <h5>40 g</h5>
-                <h4>50 Kč</h4>
-                <a href="#" class="btn btn-primary" style="background: #AD2E24;">Přidat do košíku</a>
-            </div>
-        </div>
-        <div class="card m-5" style="width:20%;height: 400px">
-            <img class="card-img-top" src="./res/test.jpeg" alt="Card image">
-            <div class="card-body" style="color: black">
-                <h4 class="card-title">Jerky1</h4>
-                <p class="card-text">Jsou fakt dobrý</p>
-                <h5>40 g</h5>
-                <h4>50 Kč</h4>
-                <a href="#" class="btn btn-primary" style="background: #AD2E24;">Přidat do košíku</a>
-            </div>
-        </div>
-        <div class="card m-5" style="width:20%;height: 400px">
-            <img class="card-img-top" src="./res/test.jpeg" alt="Card image">
-            <div class="card-body" style="color: black">
-                <h4 class="card-title">Jerky1</h4>
-                <p class="card-text">Jsou fakt dobrý</p>
-                <h5>40 g</h5>
-                <h4>50 Kč</h4>
-                <a href="#" class="btn btn-primary" style="background: #AD2E24;">Přidat do košíku</a>
-            </div>
-        </div>
-
+        <?php endforeach; ?>
     </div>
 
-
-
     <footer>
-        <div class="container-fluid text-center p-5" style="background: #AD2E24;"> _placeholder_</div>
-        <div class="container-fluid text-center p-3" style="background: #540804;"> &copy; 2022 Matěj Zavadil</div>
+        <div class="container-fluid text-center p-5 bg-primary"> _placeholder_</div>
+        <div class="container-fluid text-center p-3 bg-secondary"> &copy; 2022 Matěj Zavadil</div>
     </footer>
 </body>
 </html>
