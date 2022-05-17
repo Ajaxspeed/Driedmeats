@@ -26,7 +26,7 @@
                 <li><a class="dropdown-item" href="#">Zvěřinové</a></li>
             </ul>
         </li>
-        <?php if (empty($_SESSION)): ?>
+        <?php if (empty($_SESSION['lg_email'])): ?>
         <li class="nav-item">
             <a class="nav-link" href="login.php">Přihlásit se</a>
         </li>
@@ -35,7 +35,7 @@
         </li>
         <?php endif;?>
 
-        <?php if (!empty($_SESSION)): ?>
+        <?php if (!empty($_SESSION['lg_email'])): ?>
             <li class="nav-item">
                 <a class="nav-link" href="#">Účet</a>
             </li>

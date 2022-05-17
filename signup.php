@@ -1,10 +1,22 @@
 <?php  include 'inc/header.php'; ?>
 
+<?php
+$errorMsg = [];
+
+if(!empty($_SESSION['errorMsg'])){
+    $errorMsg = $_SESSION['errorMsg'];
+}
+
+?>
+
 <div class="container w-25 m-auto text-black">
+    <?php foreach ($errorMsg as $msg): ?>
+    <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
+    <?php endforeach; ?>
     <form method="post" action="singupController.php">
         <div class="form-group m-1">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
         </div>
         <div class="form-group m-1">
             <label for="f_name">Jméno</label>
@@ -23,10 +35,28 @@
             <input type="password" class="form-control" name="password" id="password" placeholder="Heslo">
         </div>
         <div class="form-group m-1">
-            <label for="password">Heslo znovu</label>
+            <label for="password2">Heslo znovu</label>
             <input type="password" class="form-control" name="password2" id="password2" placeholder="Heslo">
         </div>
         <button type="submit" class="btn btn-primary bg-primary border-0 m-1 ">Zaregistrovat se</button>
     </form>
 </div>
+
+<!-- Add previously entered values -->
+
+<?php if (!empty($_SESSION['errorMsg'])): ?>
+<script>$("#email").val('<?php echo $_SESSION['email'] ?>')</script>
+<script>$("#f_name").val('<?php echo $_SESSION['f_name'] ?>')</script>
+<script>$("#s_name").val('<?php echo $_SESSION['s_name'] ?>')</script>
+<script>$("#phone").val('<?php echo $_SESSION['phone'] ?>')</script>
+<?php endif;?>
+
+<?php if (!empty($_SESSION['errorValues'])): ?>
+    <?php foreach ($_SESSION['errorValues'] as $errorValue): ?>
+        <script>$('#<?php echo $errorValue?>').css("border-color","red")</script>
+    <?php endforeach;?>
+<?php endif;?>
+
+
+
 <?php include "inc/footer.php";?>

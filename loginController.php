@@ -17,8 +17,8 @@ if(!empty($_POST)){
     if (password_verify($password,$users['password'])){
         //session_set_cookie_params(0, '/');
         session_start();
-        $_SESSION['id'] = $users['user_id'];
-        $_SESSION['email'] = $users['email'];
+        $_SESSION['lg_id'] = $users['user_id'];
+        $_SESSION['lg_email'] = $users['email'];
         header('Location: index.php');
         exit();
     }

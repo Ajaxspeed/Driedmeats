@@ -4,6 +4,7 @@
 
 
 <div class="container w-25 m-auto text-black">
+    <h5 class="m-1"><?php if (!empty($_GET['reg'])){ echo "Registrace proběhla úspěšně, nyní se můžete přihlásit"; } ?></h5>
     <h6 class="m-1 text-danger"><?php if (!empty($_GET['err'])){ echo "Špatný email nebo heslo"; } ?></h6>
     <form method="post" action="loginController.php">
         <div class="form-group m-1">

@@ -3,26 +3,72 @@
 <?php
 session_start();
 
+$errorMsq = [];
+$errorValues = [];
+
 if (!empty($_POST)) {
+    $err = [];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $password2 = $_POST['password2'];
     $phone = $_POST['phone'];
     $f_name = $_POST['f_name'];
     $s_name = $_POST['s_name'];
 
-    // if (strlen($password) < 8) {
+    $UsersDB = new UsersDB();
+    $existingUser = $UsersDB->fetchById($email)[0];
 
-    // }
-    // validace vstupu, pomoci regex
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        array_push($errorMsq,'Zadejte platný formát emailu');
+        array_push($errorValues,'email');
+    }
 
+    if(sizeof($existingUser)!== 0){
+        array_push($errorMsq,'Tento uživatel již existuje');
+        array_push($errorValues,'email');
+    }
+
+
+    if($password!=$password2){
+        array_push($errorMsq,'Hesla se neshodují');
+        array_push($errorValues,'password');
+    }
+
+    if(strlen($password)< 8){
+        array_push($errorMsq,'Heslo musí obsahovat minimálně 8 znaků');
+        array_push($errorValues,'password');
+    }
+
+    if (!preg_match('/^(\+\d{3} ?)?(\d{3} ?){3}$/', $phone)){
+        array_push($errorMsq,'Zadejte platný formát telefoního čísla');
+        array_push($errorValues,'phone');
+    }
+
+    if(strlen($f_name)< 1){
+        array_push($errorMsq,'Zadejte prosím své jméno');
+        array_push($errorValues,'f_name');
+    }
+
+    if(strlen($s_name)< 1){
+        array_push($errorMsq,'Zadejte prosím své příjmení');
+        array_push($errorValues,'s_name');
+    }
+
+        if (sizeof($errorValues)===0){
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $usersDB = new UsersDB();
     echo($usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]));
     $usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]);
+    session_destroy();
+    header('Location: login.php?reg=1');
+        }
 
+    else{
+        $_SESSION = $_POST;
+        $_SESSION['errorMsg'] = $errorMsq;
+        $_SESSION['errorValues'] = $errorValues;
+        header('Location: signup.php');
+    }
 
-    //header('Location: index.php');
 }
-
-
 ?>
