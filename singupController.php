@@ -59,7 +59,6 @@ if (!empty($_POST)) {
     $usersDB = new UsersDB();
     echo($usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]));
     $usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]);
-    session_destroy();
     header('Location: login.php?reg=1');
         }
 
