@@ -6,9 +6,9 @@ $productsDB = new ProductsDB();
 $products = $productsDB->fetchAll();
 ?>
 
-    <?php  include 'inc/header.php'?>
+    <?php  include 'inc/header.php'; ?>
 
-    <div class="d-flex w-75 m-auto min-vh-100 justify-content-center flex-wrap">
+    <div class="d-flex w-75 m-auto justify-content-center flex-wrap">
         <?php foreach ($products as $product):?>
             <div class="card m-5" style="width:300px;height: 500px">
                 <img class="card-img-top" src="<?php echo $product['img_link'] ?>" alt="Náhled produktu">
