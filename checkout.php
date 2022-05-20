@@ -4,12 +4,12 @@
 <?php require 'orderDetailsController.php'?>
 <?php
 
-if(empty($_POST['shipping'])){
+if(empty($_SESSION['od_values'])){
     header('Location: orderDetails.php');
 }
 
 $productsDB = new ProductsDB();
-$shipping = $productsDB->fetchById($_POST['shipping'])[0];
+$shipping = $productsDB->fetchById($_SESSION['od_values']['shipping'])[0];
 
 $usersDB = new UsersDB();
 $user = $usersDB->fetchById($_SESSION['lg_email'])[0];
@@ -65,46 +65,24 @@ $results = cartBuilder();
         </tr>
         </tfoot>
     </table>
-    <div class="d-flex flex-column align-items-end">
-
-            <form method="post" class="form-control-lg w-100" action="#">
-                <h4 class="m-1">Dodací údaje</h4>
-                <div class="form-group m-1 w-50">
-                    <input disabled class="border-0 bg-white" style="width: 25%" name="f_name" id="f_name" value="<?php echo $user['f_name'] ?>">
-                    <input disabled class="border-0 bg-white" style="width: 25%" name ="S_name" id="s_name" value="<?php echo $user['s_name'] ?>">
-                </div>
-                <div class="form-group m-1 w-50">
-                    <input disabled class="border-0 bg-white" style="width: 25%" name="street" id="street" value="<?php echo $_POST['street'] ?>">
-                    <input disabled class="border-0 bg-white" style="width: 25%" name ="number" id="number" value="<?php echo $_POST['number'] ?>">
-                </div>
-                <div class="form-group m-1">
-                    <input disabled class="border-0 bg-white" name="city" value="<?php echo $_POST['city'] ?>">
-                </div>
-                <div class="form-group m-1">
-                    <input disabled class="border-0 bg-white" name="zip" value="<?php echo $_POST['zip'] ?>">
-                </div>
-                <div class="form-group m-1">
-                    <label class="mx-1">Doprava:</label>
-                    <input disabled class="w-25 border-0 bg-white" name="shipping" value="<?php echo $shipping['prod_name']?>">
-                </div>
-                <div class="form-group m-1">
-                    <label class="mx-1">Email:</label>
-                    <input disabled class="w-25 border-0 bg-white" name="email" value="<?php echo $user['email'] ?>">
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary btn-lg m-1">Závázně objednat</button>
-                </div>
-            </form>
+    <div class="d-flex flex-column align-items-start">
+        <p class="me-auto">
+            <h4>Dodací údaje</h4>
+            <?php echo $user['f_name']." ".$user['s_name']?>
+        <br>
+            <?php echo $_SESSION['od_values']['street']." ". $_SESSION['od_values']['number']?>
+        <br>
+            <?php echo $_SESSION['od_values']['city']?>
+        <br>
+            <?php echo $_SESSION['od_values']['zip']?>
+        <br>
+            Doručení: <?php echo $shipping['prod_name']?>
+        <br>
+            Email: <?php echo $user['email']?>
+        </p>
+        <a class="btn btn-primary btn-lg align-self-end">Závazně objednat</a>
     </div>
 </div>
-
-
-<script>
-    window.onload= function (){
-    $('#f_name').css('width',$('#f_name').val().length + 'ch');
-    $('#street').css('width',$('#street').val().length + 'ch');
-    }
-</script>
 
 
 <?php include 'inc/footer.php'?>

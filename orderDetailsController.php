@@ -2,7 +2,11 @@
 
 $errorMsq = [];
 $errorValues = [];
+$_SESSION['od_values'] = [];
 
+if(empty($_POST)){
+    header('Location: orderDetails.php');
+}
  if(!empty($_POST)){
      $street = $_POST['street'];
      $number = $_POST['number'];
@@ -10,7 +14,7 @@ $errorValues = [];
      $zip = $_POST['zip'];
      $shipping = $_POST['shipping'];
 
-     if (!preg_match('/^\d{1,4}(\/\d{1,3})?$/', $zip)){
+     if (!preg_match('/^\d{1,4}(\/\d{1,3})?$/', $number)){
          array_push($errorMsq,'Zadejte správný formát čísla popisného');
          array_push($errorValues,'number');
      }
@@ -23,6 +27,7 @@ $errorValues = [];
      if (preg_match('/^\d{5}$/', $zip)){
          $half = str_split($zip,3);
          $zip = $half[0]." ".$half[1];
+         $_POST['zip'] = $zip;
      }
 
      if (!preg_match('/^\d{3} \d{2}$/', $zip)){
@@ -35,14 +40,14 @@ $errorValues = [];
          array_push($errorValues,'shipping');
      }
 
+     $_SESSION['od_values'] = $_POST;
+
      if (sizeof($errorValues)>0){
-         $_SESSION['od_values'] = $_POST;
          $_SESSION['od_errorMsg'] = $errorMsq;
          $_SESSION['od_errorValues'] = $errorValues;
          header('Location: orderDetails.php');
      }
      else{
-         $_SESSION['od_values'] = [];
          $_SESSION['od_errorMsg'] = [];
          $_SESSION['od_errorValues'] = [];
      }
