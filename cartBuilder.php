@@ -19,6 +19,7 @@ function cartBuilder(){
                 'size'=>$item['size'],
                 'count'=>$val['count'],
                 'price'=>$item['price'],
+                'date_edited'=>$item['date_edited']
             ];
             array_push($results,$result);
         }

@@ -17,6 +17,7 @@ $user = $usersDB->fetchById($_SESSION['lg_email'])[0];
 $total = 0;
 $results = cartBuilder();
 
+$_SESSION['od_values']['time'] = date("Y-m-d H:i:s");
 
 ?>
 
@@ -80,7 +81,7 @@ $results = cartBuilder();
         <br>
             Email: <?php echo $user['email']?>
         </p>
-        <a class="btn btn-primary btn-lg align-self-end">Závazně objednat</a>
+        <a href="createOrder.php" class="btn btn-primary btn-lg align-self-end">Závazně objednat</a>
     </div>
 </div>
 

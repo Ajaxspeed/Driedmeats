@@ -43,7 +43,7 @@ if(!empty($_SESSION['od_errorMsg'])){
         </form>
     </div>
 
-<?php if (!empty($_SESSION['od_errorMsg'])): ?>
+<?php if (!empty($_SESSION['od_values'])): ?>
     <script>$("#street").val('<?php echo $_SESSION['od_values']['street'] ?>')</script>
     <script>$("#number").val('<?php echo $_SESSION['od_values']['number'] ?>')</script>
     <script>$("#city").val('<?php echo $_SESSION['od_values']['city'] ?>')</script>
