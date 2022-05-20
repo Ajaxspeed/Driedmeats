@@ -3,8 +3,8 @@
 <?php
 $errorMsg = [];
 
-if(!empty($_SESSION['errorMsg'])){
-    $errorMsg = $_SESSION['errorMsg'];
+if(!empty($_SESSION['su_errorMsg'])){
+    $errorMsg = $_SESSION['su_errorMsg'];
 }
 
 ?>
@@ -44,15 +44,15 @@ if(!empty($_SESSION['errorMsg'])){
 
 <!-- Add previously entered values -->
 
-<?php if (!empty($_SESSION['errorMsg'])): ?>
-<script>$("#email").val('<?php echo $_SESSION['email'] ?>')</script>
-<script>$("#f_name").val('<?php echo $_SESSION['f_name'] ?>')</script>
-<script>$("#s_name").val('<?php echo $_SESSION['s_name'] ?>')</script>
-<script>$("#phone").val('<?php echo $_SESSION['phone'] ?>')</script>
+<?php if (!empty($_SESSION['su_errorMsg'])): ?>
+<script>$("#email").val('<?php echo $_SESSION['su_values']['email'] ?>')</script>
+<script>$("#f_name").val('<?php echo $_SESSION['su_values']['f_name'] ?>')</script>
+<script>$("#s_name").val('<?php echo $_SESSION['su_values']['s_name'] ?>')</script>
+<script>$("#phone").val('<?php echo $_SESSION['su_values']['phone'] ?>')</script>
 <?php endif;?>
 
-<?php if (!empty($_SESSION['errorValues'])): ?>
-    <?php foreach ($_SESSION['errorValues'] as $errorValue): ?>
+<?php if (!empty($_SESSION['su_errorValues'])): ?>
+    <?php foreach ($_SESSION['su_errorValues'] as $errorValue): ?>
         <script>$('#<?php echo $errorValue?>').css("border-color","red")</script>
     <?php endforeach;?>
 <?php endif;?>

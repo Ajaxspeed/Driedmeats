@@ -2,7 +2,7 @@
 <?php require 'db/UsersDB.php' ?>
 <?php
 
-
+session_start();
 $errorMsq = [];
 $errorValues = [];
 
@@ -59,13 +59,16 @@ if (!empty($_POST)) {
     $usersDB = new UsersDB();
     echo($usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]));
     $usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]);
+    $_SESSION['su_values'] = [];
+    $_SESSION['su_errorMsg'] = [];
+    $_SESSION['su_errorValues'] = [];
     header('Location: login.php?reg=1');
         }
 
     else{
-        $_SESSION = $_POST;
-        $_SESSION['errorMsg'] = $errorMsq;
-        $_SESSION['errorValues'] = $errorValues;
+        $_SESSION['su_values'] = $_POST;
+        $_SESSION['su_errorMsg'] = $errorMsq;
+        $_SESSION['su_errorValues'] = $errorValues;
         header('Location: signup.php');
     }
 
