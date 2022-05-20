@@ -1,4 +1,3 @@
-<?php  require 'db/Database.php'?>
 <?php  require 'db/ProductsDB.php'?>
 <?php
 

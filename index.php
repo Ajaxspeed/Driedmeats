@@ -1,11 +1,11 @@
-<?php  require 'db/Database.php'?>
+<?php  include 'inc/header.php'; ?>
 <?php  require 'db/ProductsDB.php'?>
 
 <?php
 $productsDB = new ProductsDB();
 $products = $productsDB->fetchAll();
 ?>
-    <?php  include 'inc/header.php'; ?>
+
     <div class="d-flex w-75 m-auto justify-content-center flex-wrap">
         <?php foreach ($products as $product):?>
             <div class="card m-5" style="width:300px;height: 500px">

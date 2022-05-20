@@ -1,5 +1,5 @@
 <?php session_start()?>
-
+<?php  require 'db/Database.php'?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>

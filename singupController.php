@@ -1,7 +1,7 @@
 <?php require 'db/Database.php' ?>
 <?php require 'db/UsersDB.php' ?>
 <?php
-session_start();
+
 
 $errorMsq = [];
 $errorValues = [];

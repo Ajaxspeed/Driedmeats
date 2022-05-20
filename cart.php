@@ -1,14 +1,12 @@
-<?php require 'cartBuilder.php'?>
-
 <?php include 'inc/header.php' ?>
-
+<?php require 'cartBuilder.php'?>
 <?php
     $total = 0;
     $results = cartBuilder();
 ?>
 
     <div class="container w-75 mx-auto text-black">
-        <table class="table">
+        <table class="table align-middle">
             <thead>
             <tr>
                 <th scope="col">Položka</th>
@@ -26,16 +24,18 @@
                 <th scope="row"><?php echo $result['name']; ?></th>
                 <td><?php echo $result['id']; ?></td>
                 <td><?php echo $result['size']; ?></td>
-                <td class="d-flex flex-row">
-                    <form class="d-flex flex-row gap-3" method="post" action="editCartItemCount.php">
+                <td>
+                    <div class="d-flex flex-row">
+                        <form class="d-flex flex-row gap-3" method="post" action="editCartItemCount.php">
+                                <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
+                                <input type="number"  min="1" max="100" class="form-control-custom" id="<?php echo $result['id']; ?>" name="count" value="<?php echo $result['count']; ?>">
+                                <button type="submit" class="btn btn-primary">Změnit množství</button>
+                        </form>
+                        <form method="post" action="removeFromCart.php">
                             <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
-                            <input type="number"  min="1" max="100" class="form-control-custom" id="<?php echo $result['id']; ?>" name="count" value="<?php echo $result['count']; ?>">
-                            <button type="submit" class="btn btn-primary">Změnit množství</button>
-                    </form>
-                    <form method="post" action="removeFromCart.php">
-                        <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
-                        <button type="submit" class="btn btn-primary">Odstranit</button>
-                    </form>
+                            <button type="submit" class="btn btn-primary">Odstranit</button>
+                        </form>
+                    </div>
                 </td>
                 <td><?php echo $result['price']; ?> Kč</td>
                 <td><?php echo ($result['price']*$result['count']); ?> Kč</td>
@@ -55,7 +55,7 @@
             </tfoot>
         </table>
         <div class="d-flex justify-content-end">
-            <a href="#"><button class="btn btn-primary">Vytvořit objednávku</button></a>
+            <a href="orderDetails.php"><button class="btn btn-primary">Vytvořit objednávku</button></a>
         </div>
     </div>
 
