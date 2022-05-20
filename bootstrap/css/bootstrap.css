@@ -2331,6 +2331,11 @@ progress {
     font-size: 0.875rem;
     border-radius: 0.25rem;
 }
+
+.form-control-custom{
+    width: 20%;
+}
+
 .form-control-sm::-webkit-file-upload-button {
     padding: 0.25rem 0.5rem;
     margin: -0.25rem -0.5rem;
@@ -3034,7 +3039,8 @@ textarea.form-control-lg {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+    /*border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);*/
+    border: none;
     border-radius: var(--bs-btn-border-radius);
     background-color: var(--bs-btn-bg);
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3074,14 +3080,14 @@ textarea.form-control-lg {
 
 .btn-primary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #0d6efd;
+    --bs-btn-bg: var(--bs-primary);
     --bs-btn-border-color: #0d6efd;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #0b5ed7;
-    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-hover-bg: var(--bs-primary);
+    /*--bs-btn-hover-border-color: #0a58ca;*/
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-bg: var(--bs-primary);
     --bs-btn-active-border-color: #0a53be;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;

@@ -2,8 +2,7 @@
 <?php require 'db/UsersDB.php' ?>
 
 <?php
-
-
+session_start();
 $users="";
 $email = "";
 $password = "";
@@ -16,7 +15,6 @@ if(!empty($_POST)){
     $users = $usersDB->fetchById($email)[0];
     if (password_verify($password,$users['password'])){
         //session_set_cookie_params(0, '/');
-        session_start();
         $_SESSION['lg_id'] = $users['user_id'];
         $_SESSION['lg_email'] = $users['email'];
         header('Location: index.php');

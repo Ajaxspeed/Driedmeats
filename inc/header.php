@@ -45,7 +45,7 @@
         <?php endif;?>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">Košík</a>
+            <a class="nav-link" href="cart.php">Košík</a>
         </li>
 
     </ul>
