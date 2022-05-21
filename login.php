@@ -9,11 +9,11 @@
     <form method="post" action="loginController.php">
         <div class="form-group m-1">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="">
         </div>
         <div class="form-group m-1">
             <label for="password">Heslo</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="*****">
         </div>
         <button type="submit" class="btn btn-primary bg-primary border-0 m-1 ">Přihlásit se</button>
     </form>

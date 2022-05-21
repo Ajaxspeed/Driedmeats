@@ -14,7 +14,6 @@ if(!empty($_POST)){
     $usersDB = new UsersDB();
     $users = $usersDB->fetchById($email)[0];
     if (password_verify($password,$users['password'])){
-        //session_set_cookie_params(0, '/');
         $_SESSION['lg_id'] = $users['user_id'];
         $_SESSION['lg_email'] = $users['email'];
         header('Location: index.php');

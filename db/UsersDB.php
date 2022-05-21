@@ -26,5 +26,13 @@ class UsersDB extends Database{
         catch (Exception $e){return $e->getMessage();}
     }
 
+    public function updateById($id, $field, $value){
+        $statement = $this -> pdo -> prepare('UPDATE ' . $this-> tableName . ' SET ' . $field . '= :value  WHERE user_id = :id');
+        return $statement -> execute([
+            'value'=>$value,
+            'id'=>$id
+        ]);
+    }
+
 }
 

@@ -41,7 +41,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="userOrders.php">Objednávky</a></li>
                     <li><a class="dropdown-item" href="#">Osobní údaje</a></li>
-                    <li><a class="dropdown-item" href="#">Změna hesla</a></li>
+                    <li><a class="dropdown-item" href="changePassword.php">Změna hesla</a></li>
                 </ul>
             </li>
             <li class="nav-item">
