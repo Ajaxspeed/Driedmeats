@@ -6,6 +6,7 @@ $_SESSION['od_values'] = [];
 
 if(empty($_POST)){
     header('Location: orderDetails.php');
+    exit();
 }
  if(!empty($_POST)){
      $street = $_POST['street'];
@@ -46,6 +47,7 @@ if(empty($_POST)){
          $_SESSION['od_errorMsg'] = $errorMsq;
          $_SESSION['od_errorValues'] = $errorValues;
          header('Location: orderDetails.php');
+         exit();
      }
      else{
          $_SESSION['od_errorMsg'] = [];

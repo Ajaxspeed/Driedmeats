@@ -29,15 +29,15 @@ if (!empty($_GET['err'])){
     <form method="post" action="changePasswordController.php">
         <div class="form-group m-1">
             <label for="currentPassword">Současné heslo</label>
-            <input type="password" class="form-control" name="currentPassword" id="currentPassword" placeholder="Email">
+            <input type="password" class="form-control" name="currentPassword" id="currentPassword" placeholder="me@example.com">
         </div>
         <div class="form-group m-1">
             <label for="newPassword">Nové heslo</label>
-            <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="*****">
+            <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="********">
         </div>
         <div class="form-group m-1">
             <label for="newPassword2">Nové heslo znovu</label>
-            <input type="password" class="form-control" name="newPassword2" id="newPassword2" placeholder="*****">
+            <input type="password" class="form-control" name="newPassword2" id="newPassword2" placeholder="********">
         </div>
         <button type="submit" class="btn btn-primary bg-primary border-0 m-1 ">Změnit heslo</button>
     </form>
