@@ -36,8 +36,13 @@
         <?php endif;?>
 
         <?php if (!empty($_SESSION['lg_email'])): ?>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Účet</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Účet</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="userOrders.php">Objednávky</a></li>
+                    <li><a class="dropdown-item" href="#">Osobní údaje</a></li>
+                    <li><a class="dropdown-item" href="#">Změna hesla</a></li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">Odhlásit se</a>

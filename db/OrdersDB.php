@@ -3,6 +3,18 @@
 class OrdersDB extends Database{
     protected $tableName = 'orders';
 
+    public function fetchById($id){
+        $statement = $this->pdo->prepare('SELECT * FROM '.$this->tableName.' WHERE order_id = :id LIMIT 1');
+        $statement->execute(['id'=>$id]);
+        return $statement->fetchAll();
+    }
+
+    public function fetchByUser($id){
+        $statement = $this->pdo->prepare('SELECT * FROM '.$this->tableName.' WHERE user_id = :id');
+        $statement->execute(['id'=>$id]);
+        return $statement->fetchAll();
+    }
+
     public function create($args){
         $sql = 'INSERT INTO ' . $this->tableName.' (order_id, street, city, zip, shipping, user_id) VALUES (:id, :street, :city, :zip, :shipping, :user_id)';
         $statement = $this->pdo->prepare($sql);
