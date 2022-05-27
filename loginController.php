@@ -16,6 +16,7 @@ if(!empty($_POST)){
     if (password_verify($password,$users['password'])){
         $_SESSION['lg_id'] = $users['user_id'];
         $_SESSION['lg_email'] = $users['email'];
+        $_SESSION['lg_privileges'] = $users['privileges'];
         header('Location: index.php');
         exit();
     }

@@ -57,8 +57,7 @@ if (!empty($_POST)) {
         if (sizeof($errorValues)===0){
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $usersDB = new UsersDB();
-            echo($usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]));
-            $usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name,]);
+            $usersDB->create([$email, $hashedPassword, $phone, $f_name, $s_name]);
             $_SESSION['su_values'] = [];
             $_SESSION['su_errorMsg'] = [];
             $_SESSION['su_errorValues'] = [];
