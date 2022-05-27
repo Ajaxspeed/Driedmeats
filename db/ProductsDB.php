@@ -15,5 +15,32 @@ class ProductsDB extends Database{
         return $statement->fetchAll();
 
      }
+
+    public function create($args){
+        $sql = 'INSERT INTO ' . $this->tableName.' (prod_name, description, price, size, cat_id, img_link) VALUES (:prod_name, :description, :price, :size, :cat_id, :img_link)';
+        $statement = $this->pdo->prepare($sql);
+        return $statement->execute([
+            'prod_name' => $args['name'],
+            'description' => $args['description'],
+            'price' => $args['price'],
+            'size' => $args['size'],
+            'cat_id' => $args['cat_id'],
+            'img_link' => $args['img_link'],
+        ]);
+
+    }
+
+    public function updateById($id, $field, $value){
+        $statement = $this -> pdo -> prepare('UPDATE ' . $this-> tableName . ' SET ' . $field . '= :value  WHERE prod_id = :id');
+        return $statement -> execute([
+            'value'=>$value,
+            'id'=>$id
+        ]);
+    }
+
+    public function deleteById($id){
+        $statement = $this->pdo->prepare('DELETE * FROM '.$this->tableName.' WHERE prod_id = :id');
+        $statement->execute(['id'=>$id]);
+    }
 }
 ?>
