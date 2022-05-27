@@ -18,4 +18,5 @@ if(!empty($_POST)){
         $_SESSION['cart'][] = $toCart;
     }
 }
-header('Location: index.php');
+$url = $_SERVER['HTTP_REFERER'];
+header('Location: '.$url);

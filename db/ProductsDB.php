@@ -16,6 +16,22 @@ class ProductsDB extends Database{
 
      }
 
+     public function fetchByCategory($id, $offset, $itemsPerPage){
+        $itemsPerPage = 6;
+         $statement = $this->pdo->prepare("SELECT * FROM ".$this->tableName."  WHERE cat_id = ? ORDER BY prod_id LIMIT ? OFFSET ?");
+         $statement->bindValue(1, $id, PDO::PARAM_INT);
+         $statement->bindValue(2, $itemsPerPage, PDO::PARAM_INT);
+         $statement->bindValue(3, $offset, PDO::PARAM_INT);
+         $statement->execute();
+         return $statement->fetchAll();
+     }
+
+     public function countItems($cat_id){
+        $statement = $this->pdo->prepare("SELECT COUNT(prod_id) FROM products WHERE cat_id = :cat_id ");
+        $statement->execute(['cat_id'=>$cat_id]);
+        return $statement->fetchColumn();
+     }
+
     public function create($args){
         $sql = 'INSERT INTO ' . $this->tableName.' (prod_name, description, price, size, cat_id, img_link) VALUES (:prod_name, :description, :price, :size, :cat_id, :img_link)';
         $statement = $this->pdo->prepare($sql);

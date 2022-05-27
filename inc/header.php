@@ -20,10 +20,10 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Kategorie</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hovězí</a></li>
-                <li><a class="dropdown-item" href="#">Vepřové</a></li>
-                <li><a class="dropdown-item" href="#">Krůtí</a></li>
-                <li><a class="dropdown-item" href="#">Zvěřinové</a></li>
+                <li><a class="dropdown-item" href="../products.php?category=hovezi">Hovězí</a></li>
+                <li><a class="dropdown-item" href="../products.php?category=veprove">Vepřové</a></li>
+                <li><a class="dropdown-item" href="../products.php?category=kruti">Krůtí</a></li>
+                <li><a class="dropdown-item" href="../products.php?category=zverinove">Zvěřinové</a></li>
             </ul>
         </li>
         <?php if (empty($_SESSION['lg_email'])): ?>
