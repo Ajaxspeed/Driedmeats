@@ -18,8 +18,8 @@ if (empty($item)){
 ?>
 
 <h1 class="text-center text-black mt-5"><?php echo $item['prod_name'] ?></h1>
-<div class="d-flex w-50 mx-auto justify-content-center flex-wrap">
-    <div class="card m-5" style="width:50%;height: auto">
+<div class="d-flex w-25 mx-auto justify-content-center">
+    <div class="card my-5" style="height: auto">
         <div class="container w-100 p-0">
             <img class="card-img-top" src="<?php echo $item['img_link'] ?>" alt="Náhled produktu " width="300" height="auto">
         </div>
@@ -28,7 +28,7 @@ if (empty($item)){
             <h5><?php echo $item['size'] ?></h5>
             <h4><?php echo $item['price'] ?> Kč</h4>
             <form method="post" action="functions/addToCart.php">
-                <div class="d-flex  mt-4">
+                <div class="d-flex mt-4">
                     <input type="hidden" name="id" value="<?php echo $item['prod_id']?>">
                     <button type="submit" class="btn btn-primary m-1">Přidat do košíku</button>
                     <?php if(!empty($_SESSION['lg_privileges'])&&$_SESSION['lg_privileges'] == 2):?>

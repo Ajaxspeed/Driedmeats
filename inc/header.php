@@ -42,13 +42,16 @@
                     <li><a class="dropdown-item" href="userOrders.php">Objednávky</a></li>
                     <li><a class="dropdown-item" href="changeUserInfo.php">Osobní údaje</a></li>
                     <li><a class="dropdown-item" href="changePassword.php">Změna hesla</a></li>
+
                 </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="functions/logout.php">Odhlásit se</a>
             </li>
         <?php endif;?>
-
+        <?php if (!empty($_SESSION['lg_privileges'])&&$_SESSION['lg_privileges']==2):?>
+            <li class="nav-item"><a class="nav-link" href="createItem.php">Vytvořit produkt</a></li>
+        <?php endif;?>
         <li class="nav-item">
             <a class="nav-link" href="cart.php">Košík</a>
         </li>
