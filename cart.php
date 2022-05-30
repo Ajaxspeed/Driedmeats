@@ -1,5 +1,5 @@
 <?php include 'inc/header.php' ?>
-<?php require 'cartBuilder.php'?>
+<?php require 'functions/cartBuilder.php' ?>
 <?php
     $total = 0;
     $results = cartBuilder();
@@ -26,12 +26,12 @@
                 <td><?php echo $result['size']; ?></td>
                 <td>
                     <div class="d-flex flex-row">
-                        <form class="d-flex flex-row gap-3" method="post" action="editCartItemCount.php">
+                        <form class="d-flex flex-row gap-3" method="post" action="functions/editCartItemCount.php">
                                 <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
                                 <input type="number"  min="1" max="100" class="form-control-custom" id="<?php echo $result['id']; ?>" name="count" value="<?php echo $result['count']; ?>">
                                 <button type="submit" class="btn btn-primary">Změnit množství</button>
                         </form>
-                        <form method="post" action="removeFromCart.php">
+                        <form method="post" action="functions/removeFromCart.php">
                             <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
                             <button type="submit" class="btn btn-primary">Odstranit</button>
                         </form>

@@ -1,5 +1,5 @@
 <?php  include 'inc/header.php'; ?>
-<?php include 'userRequired.php'?>
+<?php include 'functions/userRequired.php' ?>
 
 
 <?php

@@ -1,6 +1,6 @@
 <?php include 'inc/header.php'?>
-<?php require "userRequired.php"?>
-<?php require 'cartBuilder.php'?>
+<?php require "functions/userRequired.php" ?>
+<?php require 'functions/cartBuilder.php' ?>
 <?php require 'orderDetailsController.php'?>
 <?php
 

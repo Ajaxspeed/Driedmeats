@@ -1,5 +1,5 @@
 <?php include 'inc/header.php'?>
-<?php require 'userRequired.php' ?>
+<?php require 'functions/userRequired.php' ?>
 
 <?php $od_errorMsg = [];
 
@@ -14,19 +14,19 @@ if(!empty($_SESSION['od_errorMsg'])){
         <?php endforeach; ?>
         <form method="post" action="checkout.php">
             <div class="form_group m-1">
-                <label for="email">Ulice</label>
+                <label for="street">Ulice</label>
                 <input type="text" class="form-control" name="street" id="street" placeholder="Masná">
             </div>
             <div class="form_group m-1">
-                <label for="email">Číslo popisné</label>
+                <label for="number">Číslo popisné</label>
                 <input type="text" class="form-control" name="number" id="number" placeholder="100/1">
             </div>
             <div class="form_group m-1">
-                <label for="email">Obec</label>
+                <label for="city">Obec</label>
                 <input type="text" class="form-control" name="city" id="city" placeholder="Praha">
             </div>
             <div class="form_group m-1">
-                <label for="email">PSČ</label>
+                <label for="zip">PSČ</label>
                 <input type="text" class="form-control" name="zip" id="zip" placeholder="110 00">
             </div>
             <div class="form_group m-1">

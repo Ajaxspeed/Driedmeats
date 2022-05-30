@@ -1,7 +1,7 @@
 <?php session_start();?>
 <?php require 'db/Database.php'?>
-<?php require "userRequired.php" ?>
-<?php require 'cartBuilder.php'?>
+<?php require "functions/userRequired.php" ?>
+<?php require 'functions/cartBuilder.php' ?>
 <?php require "db/OrdersDB.php" ?>
 <?php require "db/Ordered_itemsDB.php"?>
 

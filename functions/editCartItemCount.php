@@ -11,7 +11,6 @@ if(!empty($_POST && !empty($_SESSION['cart']))){
             break;
         }
     }
-    header('Location: cart.php');
 }
-
+header('Location: ../cart.php');
 ?>

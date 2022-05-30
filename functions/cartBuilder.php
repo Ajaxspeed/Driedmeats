@@ -1,4 +1,4 @@
-<?php  require 'db/ProductsDB.php'?>
+<?php require 'db/ProductsDB.php' ?>
 <?php
 
 function cartBuilder(){

@@ -59,7 +59,7 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
                 </div>
                 <h5><?php echo $product['size'] ?></h5>
                 <h4><?php echo $product['price'] ?> Kč</h4>
-                <form method="post" action="addToCart.php">
+                <form method="post" action="functions/addToCart.php">
                     <div class="d-flex justify-content-between mt-4">
                         <input type="hidden" name="id" value="<?php echo $product['prod_id']?>">
                         <button type="submit" class="btn btn-primary">Přidat do košíku</button>

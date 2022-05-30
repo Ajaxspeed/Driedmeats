@@ -1,5 +1,5 @@
 <?php require 'inc/header.php'?>
-<?php require 'userRequired.php' ?>
+<?php require 'functions/userRequired.php' ?>
 <?php require 'db/OrdersDB.php'?>
 
 <?php

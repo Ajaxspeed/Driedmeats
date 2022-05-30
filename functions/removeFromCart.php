@@ -9,4 +9,4 @@ if(!empty($_POST)){
         }
     }
 }
-header('Location: cart.php');
+header('Location: ../cart.php');

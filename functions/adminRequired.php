@@ -1,4 +1,4 @@
-<?php  require 'db/UsersDB.php'?>
+<?php require 'db/UsersDB.php' ?>
 
 <?php
 if (!isset($_SESSION['lg_email'])) {

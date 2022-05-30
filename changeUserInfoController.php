@@ -1,6 +1,6 @@
 <?php session_start() ?>
 <?php require 'db/Database.php' ?>
-<?php require 'userRequired.php' ?>
+<?php require 'functions/userRequired.php' ?>
 <?php
 
 if(empty($_POST)){
