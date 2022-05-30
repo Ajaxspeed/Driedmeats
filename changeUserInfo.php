@@ -19,7 +19,7 @@ $user = $usersDB->fetchById($_SESSION['lg_email'])[0];
     <?php foreach ($errorMsg as $msg): ?>
         <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
     <?php endforeach; ?>
-    <form method="post" action="changeUserInfoController.php">
+    <form method="post" action="ctrl/changeUserInfoController.php">
         <div class="form-group m-1">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="me@example.com" value="<?php echo $user['email'] ?>">

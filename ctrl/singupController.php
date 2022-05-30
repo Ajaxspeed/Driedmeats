@@ -1,5 +1,5 @@
-<?php require 'db/Database.php' ?>
-<?php require 'db/UsersDB.php' ?>
+<?php require '../db/Database.php' ?>
+<?php require '../db/UsersDB.php' ?>
 <?php
 
 session_start();
@@ -61,7 +61,7 @@ if (!empty($_POST)) {
             $_SESSION['su_values'] = [];
             $_SESSION['su_errorMsg'] = [];
             $_SESSION['su_errorValues'] = [];
-            header('Location: login.php?reg=1');
+            header('Location: ../login.php?reg=1');
             exit();
         }
 
@@ -69,7 +69,7 @@ if (!empty($_POST)) {
         $_SESSION['su_values'] = $_POST;
         $_SESSION['su_errorMsg'] = $errorMsq;
         $_SESSION['su_errorValues'] = $errorValues;
-        header('Location: signup.php');
+        header('Location: ../signup.php');
         exit();
     }
 

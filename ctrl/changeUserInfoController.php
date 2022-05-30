@@ -1,10 +1,10 @@
 <?php session_start() ?>
-<?php require 'db/Database.php' ?>
-<?php require 'functions/userRequired.php' ?>
+<?php require '../db/Database.php' ?>
+<?php require '../functions/userRequired.php' ?>
 <?php
 
 if(empty($_POST)){
-    header('Location: changePassword.php');
+    header('Location: ../changePassword.php');
     exit();
 }
 
@@ -56,7 +56,7 @@ if(strlen($s_name)< 1){
 if (sizeof($errorValues)!=0){
     $_SESSION['cui_errorMsg'] = $errorMsq;
     $_SESSION['cui_errorValues'] = $errorValues;
-    header('Location: changeUserInfo.php');
+    header('Location: ../changeUserInfo.php');
     exit();
 }
 
@@ -66,7 +66,7 @@ if (sizeof($errorValues)!=0){
      if (!$UsersDB->updateById($currentUser['user_id'],'email',$email)){
          array_push($errorMsq,'Něco se pokazilo, zkontrolujte své údaje a zkuste to prosím znovu');
          $_SESSION['cui_errorMsg'] = $errorMsq;
-         header('Location: changeUserInfo.php');
+         header('Location: ../changeUserInfo.php');
          exit();
      }
      $changeCount += 1;
@@ -77,7 +77,7 @@ if($currentUser['f_name']!=$f_name){
         //if update fails
         array_push($errorMsq,'Něco se pokazilo, zkontrolujte své údaje a zkuste to prosím znovu');
         $_SESSION['cui_errorMsg'] = $errorMsq;
-        header('Location: changeUserInfo.php');
+        header('Location: ../changeUserInfo.php');
         exit();
     }
     $changeCount += 1;
@@ -88,7 +88,7 @@ if($currentUser['s_name']!=$s_name){
         //if update fails
         array_push($errorMsq,'Něco se pokazilo, zkontrolujte své údaje a zkuste to prosím znovu');
         $_SESSION['cui_errorMsg'] = $errorMsq;
-        header('Location: changeUserInfo.php');
+        header('Location: ../changeUserInfo.php');
         exit();
     }
     $changeCount += 1;
@@ -99,7 +99,7 @@ if($currentUser['phone']!=$phone){
         //if update fails
         array_push($errorMsq,'Něco se pokazilo, zkontrolujte své údaje a zkuste to prosím znovu');
         $_SESSION['cui_errorMsg'] = $errorMsq;
-        header('Location: changeUserInfo.php');
+        header('Location: ../changeUserInfo.php');
         exit();
     }
     $changeCount += 1;
@@ -107,7 +107,7 @@ if($currentUser['phone']!=$phone){
 
 $_SESSION['cui_errorMsg'] = [];
 $_SESSION['cui_errorValues'] = [];
-header('Location: changeUserInfo.php?success='.$changeCount);
+header('Location: ../changeUserInfo.php?success='.$changeCount);
 
 
 

@@ -1,7 +1,7 @@
 <?php include 'inc/header.php'?>
 <?php require "functions/userRequired.php" ?>
 <?php require 'functions/cartBuilder.php' ?>
-<?php require 'orderDetailsController.php'?>
+<?php require 'ctrl/orderDetailsController.php' ?>
 <?php
 
 if(empty($_SESSION['od_values'])){

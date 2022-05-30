@@ -5,7 +5,7 @@ $errorValues = [];
 $_SESSION['od_values'] = [];
 
 if(empty($_POST)){
-    header('Location: orderDetails.php');
+    header('Location: ../orderDetails.php');
     exit();
 }
  if(!empty($_POST)){
@@ -46,7 +46,7 @@ if(empty($_POST)){
      if (sizeof($errorValues)>0){
          $_SESSION['od_errorMsg'] = $errorMsq;
          $_SESSION['od_errorValues'] = $errorValues;
-         header('Location: orderDetails.php');
+         header('Location: ../orderDetails.php');
          exit();
      }
      else{

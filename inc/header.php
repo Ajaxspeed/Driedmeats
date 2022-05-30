@@ -45,7 +45,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">Odhlásit se</a>
+                <a class="nav-link" href="functions/logout.php">Odhlásit se</a>
             </li>
         <?php endif;?>
 

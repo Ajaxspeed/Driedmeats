@@ -1,5 +1,5 @@
-<?php require 'db/Database.php' ?>
-<?php require 'db/UsersDB.php' ?>
+<?php require '../db/Database.php' ?>
+<?php require '../db/UsersDB.php' ?>
 
 <?php
 session_start();
@@ -17,15 +17,15 @@ if(!empty($_POST)){
         $_SESSION['lg_id'] = $users['user_id'];
         $_SESSION['lg_email'] = $users['email'];
         $_SESSION['lg_privileges'] = $users['privileges'];
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit();
     }
     else{
-        header('Location: login.php?err=1');
+        header('Location: ../login.php?err=1');
     }
 }
 else{
-        header('Location: login.php?err=1');
+        header('Location: ../login.php?err=1');
 }
 
 ?>
