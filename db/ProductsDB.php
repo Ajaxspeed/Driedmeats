@@ -55,8 +55,8 @@ class ProductsDB extends Database{
     }
 
     public function deleteById($id){
-        $statement = $this->pdo->prepare('DELETE * FROM '.$this->tableName.' WHERE prod_id = :id');
-        $statement->execute(['id'=>$id]);
+        $statement = $this->pdo->prepare('SET FOREIGN_KEY_CHECKS=0; DELETE FROM '.$this->tableName.' WHERE prod_id = :id;SET FOREIGN_KEY_CHECKS=1');
+        return$statement->execute(['id'=>$id]);
     }
 }
 ?>

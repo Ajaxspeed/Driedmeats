@@ -65,7 +65,7 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
                         <button type="submit" class="btn btn-primary">Přidat do košíku</button>
                         <?php if(!empty($_SESSION['lg_privileges'])&&$_SESSION['lg_privileges'] == 2):?>
                             <a href="updateItem.php?id=<?php echo $product['prod_id'] ?>" class="btn btn-warning"><img src="res/icons/edit.svg" title="Upravit produkt" alt="Upravit produkt"></a>
-                            <a href="#" class="btn btn-secondary"><img src="res/icons/delete.svg" title="Smazat produkt" alt="Smazat produkt"></a>
+                            <a href="deleteItem.php?id=<?php echo $product['prod_id'] ?>" class="btn btn-secondary"><img src="res/icons/delete.svg" title="Smazat produkt" alt="Smazat produkt"></a>
                         <?php endif; ?>
                     </div>
                 </form>
