@@ -46,9 +46,9 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
 
     <?php foreach ($products as $product):?>
         <div class="card m-5" style="width:300px;height: auto">
-            <div class="container w-100 p-0">
+            <div class="container w-100 p-0 overflow-hidden" style="height: 200px">
                 <a href="item.php?id=<?php echo $product['prod_id'] ?>">
-                    <img class="card-img-top" src="res/<?php echo $product['img_link'] ?>" alt="Náhled produktu " width="300" height="auto">
+                    <img class="card-img-top" src="<?php echo(file_exists('res/items/'.$product['img_link'])) ?'res/items/'.$product['img_link']: 'res/placeholder.png'; ?>" alt="Náhled produktu " width="300" height="auto">
                 </a>
             </div>
             <div class="card-body text-black">
@@ -64,7 +64,7 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
                         <input type="hidden" name="id" value="<?php echo $product['prod_id']?>">
                         <button type="submit" class="btn btn-primary">Přidat do košíku</button>
                         <?php if(!empty($_SESSION['lg_privileges'])&&$_SESSION['lg_privileges'] == 2):?>
-                            <a href="#" class="btn btn-warning"><img src="res/icons/edit.svg" title="Upravit produkt" alt="Upravit produkt"></a>
+                            <a href="updateItem.php?id=<?php echo $product['prod_id'] ?>" class="btn btn-warning"><img src="res/icons/edit.svg" title="Upravit produkt" alt="Upravit produkt"></a>
                             <a href="#" class="btn btn-secondary"><img src="res/icons/delete.svg" title="Smazat produkt" alt="Smazat produkt"></a>
                         <?php endif; ?>
                     </div>

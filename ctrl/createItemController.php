@@ -73,21 +73,20 @@ $itemDetails=[
   'img_link'=>$image
 ];
 
-//if creating order fail
+//if creating item fails
 if(!$productsDB->create($itemDetails)){
     array_push($_SESSION['ci_errorMsg'],'Něco se pokazilo, zkuste to prosím znovu');
     $_SESSION['ci_values'] = $_POST;
-    var_dump($itemDetails);
-   /* header('Location: ../createItem.php');
-    exit();*/
+    header('Location: ../createItem.php');
+    exit();
 }
 
 
 $_SESSION['ci_values'] = [];
 $_SESSION['ci_errorMsg'] = [];
-/*$_SESSION['ci_errorValues'] = [];
+$_SESSION['ci_errorValues'] = [];
 header('Location: ../createItem.php?success=1');
-exit();*/
+exit();
 
 
 

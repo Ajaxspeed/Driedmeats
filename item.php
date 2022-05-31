@@ -21,7 +21,7 @@ if (empty($item)){
 <div class="d-flex w-25 mx-auto justify-content-center">
     <div class="card my-5" style="height: auto">
         <div class="container w-100 p-0">
-            <img class="card-img-top" src="res/<?php echo $item['img_link'] ?>" alt="Náhled produktu " width="300" height="auto">
+            <img class="card-img-top" src="<?php echo(file_exists('res/items/'.$item['img_link'])) ?'res/items/'.$item['img_link']: 'res/placeholder.png'; ?>" alt="Náhled produktu " width="300" height="auto">
         </div>
         <div class="card-body text-black">
             <p class="card-text" style="min-height: 100px"><?php echo $item['description'] ?></p>

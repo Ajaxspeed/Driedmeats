@@ -16,13 +16,13 @@ if (!empty($_SESSION['ci_errorMsg'])) {
 ?>
 
 <h1 class="text-center text-black mt-5">Nový produkt</h1>
+<div class="d-flex flex-column mx-auto">
+    <h6 class="text-bg-success m-1"><?php if (!empty($_GET['success'])){ echo "Položka byla úspěšně přídána"; } ?></h6>
+    <?php foreach ($ci_errorMsg as $msg): ?>
+        <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
+    <?php endforeach; ?>
+</div>
 <div class="d-flex w-75 justify-content-center mx-auto text-black flex-wrap">
-    <div class="d-flex flex-column mx-auto">
-        <h6 class="text-bg-success m-1"><?php if (!empty($_GET['success'])){ echo "Položka byla úspěšně přídána"; } ?></h6>
-        <?php foreach ($ci_errorMsg as $msg): ?>
-            <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
-        <?php endforeach; ?>
-    </div>
     <div class="container" style="width: 500px">
         <form method="post" action="ctrl/createItemController.php">
             <div class="form-group m-1">
@@ -90,8 +90,8 @@ if (!empty($_SESSION['ci_errorMsg'])) {
     <script>$("#image").val('<?php echo $_SESSION['ci_values']['image'] ?>')</script>
 <?php endif;?>
 
-<?php if (!empty($_SESSION['od_errorValues'])): ?>
-    <?php foreach ($_SESSION['od_errorValues'] as $errorValue): ?>
+<?php if (!empty($_SESSION['ci_errorValues'])): ?>
+    <?php foreach ($_SESSION['ci_errorValues'] as $errorValue): ?>
         <script>$('#<?php echo $errorValue?>').css("border-color","red")</script>
     <?php endforeach;?>
 <?php endif;?>
@@ -111,6 +111,12 @@ if (!empty($_SESSION['ci_errorMsg'])) {
         $('#pre_price').html($(this).val()+" Kč")
     })
     $('#image').change(function (){
-        $('#pre_img').attr('src',"res/"+$(this).val())
+        $('#pre_img').attr('src',"res/items/"+$(this).val())
     })
 </script>
+
+<?php
+$_SESSION['ci_values'] = [];
+$_SESSION['ci_errorMsg'] = [];
+$_SESSION['ci_errorValues'] = [];
+?>

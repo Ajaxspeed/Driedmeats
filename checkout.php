@@ -17,6 +17,7 @@ $user = $usersDB->fetchById($_SESSION['lg_email'])[0];
 $total = 0;
 $results = cartBuilder();
 
+//Generate timestamp on load
 $_SESSION['od_values']['time'] = date("Y-m-d H:i:s");
 
 ?>
