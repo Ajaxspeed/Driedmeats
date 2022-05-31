@@ -48,7 +48,7 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
         <div class="card m-5" style="width:300px;height: auto">
             <div class="container w-100 p-0">
                 <a href="item.php?id=<?php echo $product['prod_id'] ?>">
-                    <img class="card-img-top" src="<?php echo $product['img_link'] ?>" alt="Náhled produktu " width="300" height="auto">
+                    <img class="card-img-top" src="res/<?php echo $product['img_link'] ?>" alt="Náhled produktu " width="300" height="auto">
                 </a>
             </div>
             <div class="card-body text-black">

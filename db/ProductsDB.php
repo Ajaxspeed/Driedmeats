@@ -36,7 +36,7 @@ class ProductsDB extends Database{
         $sql = 'INSERT INTO ' . $this->tableName.' (prod_name, description, price, size, cat_id, img_link) VALUES (:prod_name, :description, :price, :size, :cat_id, :img_link)';
         $statement = $this->pdo->prepare($sql);
         return $statement->execute([
-            'prod_name' => $args['name'],
+            'prod_name' => $args['prod_name'],
             'description' => $args['description'],
             'price' => $args['price'],
             'size' => $args['size'],
