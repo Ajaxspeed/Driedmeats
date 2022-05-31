@@ -41,8 +41,10 @@ if(empty($_POST)){
          array_push($errorValues,'shipping');
      }
 
+     $_SESSION['od_values'] = $_POST;
+
      if (sizeof($errorValues)>0){
-         $_SESSION['od_values'] = $_POST;
+
          $_SESSION['od_errorMsg'] = $errorMsq;
          $_SESSION['od_errorValues'] = $errorValues;
          header('Location: ../orderDetails.php');

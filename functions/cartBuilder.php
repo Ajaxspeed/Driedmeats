@@ -1,4 +1,4 @@
-<?php require 'db/ProductsDB.php' ?>
+<?php require $_SERVER['DOCUMENT_ROOT'].'/db/ProductsDB.php' ?>
 <?php
 
 function cartBuilder(){

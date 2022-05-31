@@ -1,19 +1,19 @@
 <?php session_start();?>
-<?php require 'db/Database.php'?>
-<?php require "functions/userRequired.php" ?>
-<?php require 'functions/cartBuilder.php' ?>
-<?php require "db/OrdersDB.php" ?>
-<?php require "db/Ordered_itemsDB.php"?>
+<?php require '../db/Database.php' ?>
+<?php require "../functions/userRequired.php" ?>
+<?php require '../functions/cartBuilder.php' ?>
+<?php require "../db/OrdersDB.php" ?>
+<?php require "../db/Ordered_itemsDB.php" ?>
 
 
 <?php
 if(empty($_SESSION['cart'])){
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit();
 }
 
 if(empty($_SESSION['od_values'])){
-    header('Location: orderDetails.php');
+    header('Location: ../orderDetails.php');
     exit();
 }
 
@@ -41,7 +41,7 @@ $orderDetails = [
 //if creating order fail
 if(!$ordersDB->create($orderDetails)){
     $_SESSION['od_errorMsg']= "Něco se pokazilo, zkuste to prosím znovu";
-    header('Location: orderDetails.php');
+    header('Location: ../orderDetails.php');
     exit();
 }
 
@@ -75,14 +75,14 @@ foreach ($items as $item){
         if(!$ordered_itemsDB->create($ordered_itemsDetails)){
             $ordersDB->deleteById($orderID);
             array_push($_SESSION['od_errorMsg'], "Něco se pokazilo, zkuste to prosím znovu");
-            header('Location: orderDetails.php?err=1');
+            header('Location: ../orderDetails.php?err=1');
             exit();
         }
     }
     else{
         array_push($_SESSION['od_errorMsg'], "Došlo ke změně údajů o položkách ve vašem košíku. Zkontrolujte prosím svou objednávku");
         $ordersDB->deleteById($orderID);
-        header('Location: orderDetails.php?err=2');
+        header('Location: ../orderDetails.php?err=2');
         exit();
     }
 }
@@ -90,6 +90,6 @@ foreach ($items as $item){
 //If success, empty cart & user details
 $_SESSION['cart'] = [];
 $_SESSION['od_values'] = [];
-header('Location: orderSuccess.php');
+header('Location: ../orderSuccess.php');
 exit();
 ?>

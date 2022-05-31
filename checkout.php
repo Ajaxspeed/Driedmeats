@@ -82,7 +82,7 @@ $_SESSION['od_values']['time'] = date("Y-m-d H:i:s");
         <br>
             Email: <?php echo $user['email']?>
         </p>
-        <a href="createOrder.php" class="btn btn-primary btn-lg align-self-end">Závazně objednat</a>
+        <a href="ctrl/createOrder.php" class="btn btn-primary btn-lg align-self-end">Závazně objednat</a>
     </div>
 </div>
 
