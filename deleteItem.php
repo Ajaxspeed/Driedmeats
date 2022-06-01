@@ -11,7 +11,7 @@ $item = $productsDB->fetchById($_GET['id'])[0];
 }
 
 if (empty($item)&&empty($_GET['success'])){
-    header('Location: index.php');
+    header('Location: fb_login.php');
     exit();
 }
 ?>

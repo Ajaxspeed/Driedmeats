@@ -6,7 +6,7 @@
 <?php
 
 if (empty($_GET['id'])){
-    header('Location: index.php');
+    header('Location: fb_login.php');
     exit();
 }
 
@@ -14,7 +14,7 @@ $productsDB = new ProductsDB();
 $item = $productsDB->fetchById($_GET['id'])[0];
 
 if (empty($item)){
-    header('Location: index.php');
+    header('Location: fb_login.php');
     exit();
 }
 

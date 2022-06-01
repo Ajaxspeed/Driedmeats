@@ -6,8 +6,8 @@
     <title>Driedmeats</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-    <script src="../bootstrap/js/bootstrap.js"></script>
+    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body class="d-flex flex-column min-vh-100" style="color: white">
@@ -22,12 +22,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav h5 ms-lg-auto mb-lg-0 mb-2" style="">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Kategorie</a>
+            <a class="nav-link dropdown-toggle" href="./index.php" role="button" data-bs-toggle="dropdown">Kategorie</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item mb-1" href="../products.php?category=hovezi">Hovězí</a></li>
-                <li><a class="dropdown-item mb-1" href="../products.php?category=veprove">Vepřové</a></li>
-                <li><a class="dropdown-item mb-1" href="../products.php?category=kruti">Krůtí</a></li>
-                <li><a class="dropdown-item mb-1" href="../products.php?category=zverinove">Zvěřinové</a></li>
+                <li><a class="dropdown-item mb-1" href="./products.php?category=hovezi">Hovězí</a></li>
+                <li><a class="dropdown-item mb-1" href="./products.php?category=veprove">Vepřové</a></li>
+                <li><a class="dropdown-item mb-1" href="./products.php?category=kruti">Krůtí</a></li>
+                <li><a class="dropdown-item mb-1" href="./products.php?category=zverinove">Zvěřinové</a></li>
             </ul>
         </li>
         <?php if (empty($_SESSION['lg_email'])): ?>

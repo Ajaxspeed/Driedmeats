@@ -8,7 +8,7 @@
 
 <?php
 if(empty($_SESSION['cart'])){
-    header('Location: ../index.php');
+    header('Location: ../fb_login.php');
     exit();
 }
 

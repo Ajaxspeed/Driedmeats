@@ -1,4 +1,4 @@
-<?php require $_SERVER['DOCUMENT_ROOT'].'/db/ProductsDB.php' ?>
+<?php require __DIR__.'/../db/ProductsDB.php' ?>
 <?php
 
 //Retrieves information about products stored in $_SESSION['cart']
