@@ -10,7 +10,7 @@ class OrdersDB extends Database{
     }
 
     public function fetchByUser($id){
-        $statement = $this->pdo->prepare('SELECT * FROM '.$this->tableName.' WHERE user_id = :id');
+        $statement = $this->pdo->prepare('SELECT * FROM '.$this->tableName.' WHERE user_id = :id ORDER BY date desc');
         $statement->execute(['id'=>$id]);
         return $statement->fetchAll();
     }

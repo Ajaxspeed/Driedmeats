@@ -27,7 +27,7 @@ if (empty($item)){
             <p class="card-text" style="min-height: 100px"><?php echo $item['description'] ?></p>
             <h5><?php echo $item['size'] ?></h5>
             <h4><?php echo $item['price'] ?> Kč</h4>
-            <form method="post" action="functions/addToCart.php">
+            <form method="post" action="functions/addToCart">
                 <div class="d-flex mt-4">
                     <input type="hidden" name="id" value="<?php echo $item['prod_id']?>">
                     <button type="submit" class="btn btn-primary m-1">Přidat do košíku</button>

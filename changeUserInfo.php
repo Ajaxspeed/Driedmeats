@@ -4,7 +4,6 @@
 
 <?php
 $errorMsg = [];
-
 if(!empty($_SESSION['cui_errorMsg'])){
     $errorMsg = $_SESSION['cui_errorMsg'];
 }
@@ -19,7 +18,7 @@ $user = $usersDB->fetchById($_SESSION['lg_email'])[0];
     <?php foreach ($errorMsg as $msg): ?>
         <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
     <?php endforeach; ?>
-    <form method="post" action="ctrl/changeUserInfoController.php">
+    <form method="post" action="ctrl/changeUserInfoController">
         <div class="form-group m-1">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="me@example.com" value="<?php echo $user['email'] ?>">
@@ -40,12 +39,21 @@ $user = $usersDB->fetchById($_SESSION['lg_email'])[0];
     </form>
 </div>
 
+<?php include "inc/footer.php";?>
+
+<!-- Mark fields with invalid values -->
+
 <?php if (!empty($_SESSION['cui_errorValues'])): ?>
     <?php foreach ($_SESSION['cui_errorValues'] as $errorValue): ?>
         <script>$('#<?php echo $errorValue?>').css("border-color","red")</script>
     <?php endforeach;?>
 <?php endif;?>
 
+<!-- Empty temporary $_SESSION fields -->
+
+<?php
+$_SESSION['cui_errorValues'] = [];
+$_SESSION['cui_errorMsg'] = []
+?>
 
 
-<?php include "inc/footer.php";?>

@@ -24,7 +24,7 @@ if (empty($item)&&empty($_GET['success'])){
         <h6>Název: <?php echo $item['prod_name'] ?></h6>
         <h6>Velikost: <?php echo $item['size'] ?></h6>
         <h6>Cena: <?php echo $item['price'] ?> Kč</h6>
-        <form method="post" action="ctrl/deleteItemController.php">
+        <form method="post" action="ctrl/deleteItemController">
             <input type="hidden" name="id" value="<?php echo $item['prod_id'] ?>">
             <button type="submit" class="btn btn-primary">Odstranit produkt</button>
         </form>

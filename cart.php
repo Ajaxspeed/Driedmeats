@@ -5,6 +5,7 @@
     $results = cartBuilder();
 ?>
 
+    <?php if(!empty($results)): ?>
     <div class="container w-75 mx-auto text-black">
         <table class="table align-middle">
             <thead>
@@ -26,12 +27,12 @@
                 <td><?php echo $result['size']; ?></td>
                 <td>
                     <div class="d-flex flex-row">
-                        <form class="d-flex flex-row gap-3" method="post" action="functions/editCartItemCount.php">
+                        <form class="d-flex flex-row gap-3" method="post" action="functions/editCartItemCount">
                                 <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
                                 <input type="number"  min="1" max="100" class="form-control-custom" id="<?php echo $result['id']; ?>" name="count" value="<?php echo $result['count']; ?>">
                                 <button type="submit" class="btn btn-primary">Změnit množství</button>
                         </form>
-                        <form method="post" action="functions/removeFromCart.php">
+                        <form method="post" action="functions/removeFromCart">
                             <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
                             <button type="submit" class="btn btn-primary">Odstranit</button>
                         </form>
@@ -58,6 +59,11 @@
             <a href="orderDetails.php"><button class="btn btn-primary">Vytvořit objednávku</button></a>
         </div>
     </div>
+    <?php else:?>
+        <div class="container text-center text-black m-auto">
+        <h3>Košík je momentálně prázdný</h3>
+        </div>
+    <?php endif; ?>
 
 <?php include 'inc/footer.php' ?>
 

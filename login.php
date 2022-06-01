@@ -3,10 +3,10 @@
 
 
 
-<div class="container w-25 m-auto text-black">
+<div class="container w-25 w m-auto text-black">
     <h5 class="m-1"><?php if (!empty($_GET['reg'])){ echo "Registrace proběhla úspěšně, nyní se můžete přihlásit"; } ?></h5>
     <h6 class="m-1 text-danger"><?php if (!empty($_GET['err'])){ echo "Špatný email nebo heslo"; } ?></h6>
-    <form method="post" action="ctrl/loginController.php">
+    <form method="post" action="ctrl/loginController">
         <div class="form-group m-1">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="me@example.com">

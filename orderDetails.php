@@ -12,7 +12,7 @@ if(!empty($_SESSION['od_errorMsg'])){
         <?php foreach ($od_errorMsg as $msg): ?>
             <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
         <?php endforeach; ?>
-        <form method="post" action="checkout.php">
+        <form method="post" action="checkout">
             <div class="form_group m-1">
                 <label for="street">Ulice</label>
                 <input type="text" class="form-control" name="street" id="street" placeholder="Masná">
@@ -42,6 +42,9 @@ if(!empty($_SESSION['od_errorMsg'])){
             </div>
         </form>
     </div>
+<?php include 'inc/footer.php'?>
+
+<!-- Add previously entered values -->
 
 <?php if (!empty($_SESSION['od_values'])): ?>
     <script>$("#street").val('<?php echo $_SESSION['od_values']['street'] ?>')</script>
@@ -51,11 +54,19 @@ if(!empty($_SESSION['od_errorMsg'])){
     <script>$("#shipping").val('<?php echo $_SESSION['od_values']['shipping'] ?>')</script>
 <?php endif;?>
 
+<!-- Mark fields with invalid values -->
+
 <?php if (!empty($_SESSION['od_errorValues'])): ?>
     <?php foreach ($_SESSION['od_errorValues'] as $errorValue): ?>
         <script>$('#<?php echo $errorValue?>').css("border-color","red")</script>
     <?php endforeach;?>
 <?php endif;?>
 
+<!-- Empty temporary $_SESSION fields -->
 
-<?php include 'inc/footer.php'?>
+<?php
+$_SESSION['od_values'] = [];
+$_SESSION['od_errorMsg'] = [];
+$_SESSION['od_errorValues'] = [];
+?>
+

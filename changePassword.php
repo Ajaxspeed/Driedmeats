@@ -26,7 +26,7 @@ if (!empty($_GET['err'])){
 <div class="container w-25 m-auto text-black">
     <h5 class="m-1"><?php if (!empty($_GET['success'])){ echo "Vaše heslo bylo změněno"; } ?></h5>
     <h6 class="m-1 text-danger"><?php echo $alert?></h6>
-    <form method="post" action="ctrl/changePasswordController.php">
+    <form method="post" action="ctrl/changePasswordController">
         <div class="form-group m-1">
             <label for="currentPassword">Současné heslo</label>
             <input type="password" class="form-control" name="currentPassword" id="currentPassword" placeholder="me@example.com">

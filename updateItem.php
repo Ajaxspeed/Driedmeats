@@ -38,7 +38,7 @@ if (!empty($_SESSION['ui_errorMsg'])) {
 </div>
 <div class="d-flex w-75 justify-content-center mx-auto text-black flex-wrap">
     <div class="container" style="width: 500px">
-        <form method="post" action="ctrl/updateItemController.php">
+        <form method="post" action="ctrl/updateItemController">
             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
             <input type="hidden" name="time" value="<?php echo date("Y-m-d H:i:s"); ?>">
             <div class="form-group m-1">

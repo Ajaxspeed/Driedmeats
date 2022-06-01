@@ -17,14 +17,14 @@ if (!empty($_SESSION['ci_errorMsg'])) {
 
 <h1 class="text-center text-black mt-5">Nový produkt</h1>
 <div class="d-flex flex-column mx-auto">
-    <h6 class="text-bg-success m-1"><?php if (!empty($_GET['success'])){ echo "Položka byla úspěšně přídána"; } ?></h6>
+    <h6 class="text-bg-success m-1"><?php if (!empty($_GET['success'])){ echo "Produkt byl úspěšně vytvořen"; } ?></h6>
     <?php foreach ($ci_errorMsg as $msg): ?>
         <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
     <?php endforeach; ?>
 </div>
 <div class="d-flex w-75 justify-content-center mx-auto text-black flex-wrap">
     <div class="container" style="width: 500px">
-        <form method="post" action="ctrl/createItemController.php">
+        <form method="post" action="ctrl/createItemController">
             <div class="form-group m-1">
                 <label for="name">Název položky</label>
                 <input type="text" class="form-control" name="name" id="name">
@@ -81,6 +81,8 @@ if (!empty($_SESSION['ci_errorMsg'])) {
 
 <?php require 'inc/footer.php' ?>
 
+<!-- Add previously entered values -->
+
 <?php if (!empty($_SESSION['ci_values'])): ?>
     <script>$("#name").val('<?php echo $_SESSION['ci_values']['name'] ?>')</script>
     <script>$("#category").val('<?php echo $_SESSION['ci_values']['category'] ?>')</script>
@@ -90,14 +92,17 @@ if (!empty($_SESSION['ci_errorMsg'])) {
     <script>$("#image").val('<?php echo $_SESSION['ci_values']['image'] ?>')</script>
 <?php endif;?>
 
+<!-- Empty temporary $_SESSION fields -->
+
 <?php if (!empty($_SESSION['ci_errorValues'])): ?>
     <?php foreach ($_SESSION['ci_errorValues'] as $errorValue): ?>
         <script>$('#<?php echo $errorValue?>').css("border-color","red")</script>
     <?php endforeach;?>
 <?php endif;?>
 
+<!-- Insert values to preview -->
+
 <script>
-    //Insert values to preview
     $('#name').change(function (){
         $('#pre_name').html($(this).val())
     })

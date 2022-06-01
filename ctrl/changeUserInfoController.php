@@ -4,7 +4,7 @@
 <?php
 
 if(empty($_POST)){
-    header('Location: ../changePassword.php');
+    header('Location: ../changeUserInfo.php');
     exit();
 }
 

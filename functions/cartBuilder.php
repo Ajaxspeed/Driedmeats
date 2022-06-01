@@ -1,6 +1,9 @@
 <?php require $_SERVER['DOCUMENT_ROOT'].'/db/ProductsDB.php' ?>
 <?php
 
+//Retrieves information about products stored in $_SESSION['cart']
+//returns simplified array of product information with count
+
 function cartBuilder(){
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];

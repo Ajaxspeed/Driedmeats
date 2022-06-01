@@ -37,6 +37,9 @@ if($offset % $itemsPerPage != 0){
     $offset = floor($offset/$itemsPerPage)*$itemsPerPage;
 }
 
+//url base for pagination
+$link = 'products.php?category='.$_GET['category'].'&offset=';
+
 $count = $productsDB->countItems($cat_id);
 
 $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
@@ -59,7 +62,7 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
                 </div>
                 <h5><?php echo $product['size'] ?></h5>
                 <h4><?php echo $product['price'] ?> Kč</h4>
-                <form method="post" action="functions/addToCart.php">
+                <form method="post" action="functions/addToCart">
                     <div class="d-flex justify-content-between mt-4">
                         <input type="hidden" name="id" value="<?php echo $product['prod_id']?>">
                         <button type="submit" class="btn btn-primary">Přidat do košíku</button>
@@ -76,19 +79,19 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
 <div class="d-flex justify-content-center">
         <ul class="pagination">
             <li class="page-item">
-                <a class="page-link <?php echo $offset-$itemsPerPage< 0 ? "disabled" : "";?>" href="products.php?offset=<?php echo ($offset-$itemsPerPage); ?>">
+                <a class="page-link <?php echo $offset-$itemsPerPage< 0 ? "disabled" : "";?>" href="<?php echo $link.($offset-$itemsPerPage); ?>">
                     Předchozí
                 </a>
             </li>
            <?php for ($i = 1; $i <= ceil($count / $itemsPerPage); $i++): ?>
                <li class="page-item">
-                   <a class="page-link <?php echo $offset / $itemsPerPage + 1 == $i ? "active" : ""; ?>" href="products.php?offset=<?php echo ($i - 1) * $itemsPerPage; ?>">
+                   <a class="page-link <?php echo $offset / $itemsPerPage + 1 == $i ? "active" : ""; ?>" href="<?php echo $link.(($i - 1) * $itemsPerPage); ?>">
                        <?php echo $i; ?>
                    </a>
                </li>
             <?php endfor; ?>
             <li class="page-item">
-                <a class="page-link <?php echo $offset+$itemsPerPage>= $count ? "disabled" : "";?>" href="products.php?offset=<?php echo ($offset+$itemsPerPage); ?>">
+                <a class="page-link <?php echo $offset+$itemsPerPage>= $count ? "disabled" : "";?>" href="<?php echo $link.($offset+$itemsPerPage); ?>">
                     Další
                 </a>
             </li>

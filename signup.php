@@ -2,18 +2,16 @@
 
 <?php
 $errorMsg = [];
-
 if(!empty($_SESSION['su_errorMsg'])){
     $errorMsg = $_SESSION['su_errorMsg'];
 }
-
 ?>
 
 <div class="container w-25 m-auto text-black">
     <?php foreach ($errorMsg as $msg): ?>
     <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
     <?php endforeach; ?>
-    <form method="post" action="ctrl/singupController.php">
+    <form method="post" action="ctrl/singupController">
         <div class="form-group m-1">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="me@example.com">
@@ -42,6 +40,8 @@ if(!empty($_SESSION['su_errorMsg'])){
     </form>
 </div>
 
+<?php include "inc/footer.php";?>
+
 <!-- Add previously entered values -->
 
 <?php if (!empty($_SESSION['su_errorMsg'])): ?>
@@ -51,12 +51,20 @@ if(!empty($_SESSION['su_errorMsg'])){
 <script>$("#phone").val('<?php echo $_SESSION['su_values']['phone'] ?>')</script>
 <?php endif;?>
 
+<!-- Mark fields with invalid values -->
+
 <?php if (!empty($_SESSION['su_errorValues'])): ?>
     <?php foreach ($_SESSION['su_errorValues'] as $errorValue): ?>
         <script>$('#<?php echo $errorValue?>').css("border-color","red")</script>
     <?php endforeach;?>
 <?php endif;?>
 
+<!-- Empty temporary $_SESSION fields -->
+
+<?php
+$_SESSION['su_values']=[];
+$_SESSION['su_errorMsg']=[];
+$_SESSION['su_errorValues']=[];
+?>
 
 
-<?php include "inc/footer.php";?>

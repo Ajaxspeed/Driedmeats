@@ -6,8 +6,9 @@
 <?php
 
 if(empty($_POST)){
-    header('Location ../index.php');
+    header('Location: ../index.php');
     exit();
+
 }
 
 $_SESSION['ui_values'] = [];
