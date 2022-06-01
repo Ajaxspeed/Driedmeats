@@ -6,6 +6,8 @@
     <title>Driedmeats</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./res/icons/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./res/icons/favicon.ico" type="image/x-icon"/>
     <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -57,7 +59,7 @@
             <li class="nav-item"><a class="nav-link" href="createItem.php">Vytvořit produkt</a></li>
         <?php endif;?>
         <li class="nav-item">
-            <a class="nav-link" href="cart.php">Košík</a>
+            <a class="nav-link" href="cart.php"><img src="./res/icons/cart.svg" width="23" height="23"></a>
         </li>
 
     </ul>
