@@ -65,6 +65,7 @@ $products = $productsDB->fetchByCategory($cat_id, $offset, $itemsPerPage);
                 <form method="post" action="functions/addToCart">
                     <div class="d-flex justify-content-between mt-4">
                         <input type="hidden" name="id" value="<?php echo $product['prod_id']?>">
+                        <input type="hidden" name="url" value="<?php echo $link.$offset ?>">
                         <button type="submit" class="btn btn-primary">Přidat do košíku</button>
                         <?php if(!empty($_SESSION['lg_privileges'])&&$_SESSION['lg_privileges'] == 2):?>
                             <a href="updateItem.php?id=<?php echo $product['prod_id'] ?>" class="btn btn-warning"><img src="res/icons/edit.svg" title="Upravit produkt" alt="Upravit produkt"></a>

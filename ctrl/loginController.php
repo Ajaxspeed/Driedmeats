@@ -17,7 +17,7 @@ if(!empty($_POST)){
         $_SESSION['lg_id'] = $users['user_id'];
         $_SESSION['lg_email'] = $users['email'];
         $_SESSION['lg_privileges'] = $users['privileges'];
-        header('Location: ../fb_login.php');
+        header('Location: ../index.php');
         exit();
     }
     else{

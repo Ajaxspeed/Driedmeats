@@ -11,7 +11,7 @@ $current_user = $usersDB->fetchById($_SESSION['lg_email']);
 
 if (!$current_user) {
     session_destroy();
-    header('Location: ../fb_login.php');
+    header('Location: ../index.php');
     exit();
 }
 

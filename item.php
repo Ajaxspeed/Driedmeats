@@ -30,12 +30,13 @@ if (empty($item)){
             <form method="post" action="functions/addToCart">
                 <div class="d-flex mt-4">
                     <input type="hidden" name="id" value="<?php echo $item['prod_id']?>">
+                    <input type="hidden" name="url" value="<?php echo 'item?id='.$item['prod_id'] ?>">
                     <button type="submit" class="btn btn-primary m-1">Přidat do košíku</button>
                     <?php if(!empty($_SESSION['lg_privileges'])&&$_SESSION['lg_privileges'] == 2):?>
                         <a href="updateItem.php?id=<?php echo $item['prod_id'] ?>" class="btn btn-warning m-1"><img src="res/icons/edit.svg" title="Upravit produkt" alt="Upravit produkt"></a>
                         <a href="deleteItem.php?id=<?php echo $item['prod_id'] ?>" class="btn btn-secondary m-1"><img src="res/icons/delete.svg" title="Smazat produkt" alt="Smazat produkt"></a>
                     <?php endif; ?>
-                        <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>" class="btn btn-primary m-1 ms-auto">Zpět</a>
+                        <a href="products.php" class="btn btn-primary m-1 ms-auto">Zpět</a>
                 </div>
             </form>
         </div>

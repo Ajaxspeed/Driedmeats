@@ -16,8 +16,8 @@
             <input type="password" class="form-control" name="password" id="password" placeholder="********">
         </div>
         <button type="submit" class="btn btn-primary bg-primary border-0 m-1 ">Přihlásit se</button>
-        <?php include 'Facebook/fb_login.php' ?>
     </form>
+        <?php include 'Facebook/fb_login.php'?>
 </div>
 
 
