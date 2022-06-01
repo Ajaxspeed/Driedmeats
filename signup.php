@@ -6,8 +6,8 @@ if(!empty($_SESSION['su_errorMsg'])){
     $errorMsg = $_SESSION['su_errorMsg'];
 }
 ?>
-
-<div class="container w-25 m-auto text-black">
+<h1 class="text-center text-black mt-5">Registrace</h1>
+<div class="container w-25 mx-auto text-black">
     <?php foreach ($errorMsg as $msg): ?>
     <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
     <?php endforeach; ?>

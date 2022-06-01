@@ -26,7 +26,7 @@ $items = $ordered_itemsDB->fetchById($_GET['id']);
 var_dump($items);
 $total = 0;
 ?>
-
+<h1 class="text-center text-black mt-5">Historie objednávek</h1>
 <div class="container w-75 mx-auto text-black">
     <table class="table align-middle">
         <thead>

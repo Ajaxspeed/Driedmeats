@@ -21,7 +21,7 @@ $results = cartBuilder();
 $_SESSION['od_values']['time'] = date("Y-m-d H:i:s");
 
 ?>
-
+<h1 class="text-center text-black mt-5">Shrnutí objednávky</h1>
 <div class="container w-75 mx-auto text-black">
     <table class="table align-middle">
         <thead>

@@ -2,7 +2,7 @@
 <?php include 'inc/header.php'; ?>
 
 
-
+<h1 class="text-center text-black mt-5">Přihlášení</h1>
 <div class="container w-25 w m-auto text-black">
     <h5 class="m-1"><?php if (!empty($_GET['reg'])){ echo "Registrace proběhla úspěšně, nyní se můžete přihlásit"; } ?></h5>
     <h6 class="m-1 text-danger"><?php if (!empty($_GET['err'])){ echo "Špatný email nebo heslo"; } ?></h6>

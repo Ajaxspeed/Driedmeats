@@ -7,7 +7,7 @@ if(!empty($_SESSION['od_errorMsg'])){
     $od_errorMsg = $_SESSION['od_errorMsg'];
 }
 ?>
-
+<h1 class="text-center text-black mt-5">Doplňující informace</h1>
     <div class="container w-25 mx-auto text-black">
         <?php foreach ($od_errorMsg as $msg): ?>
             <h6 class="m-1 text-danger"><?php echo $msg ?></h6>

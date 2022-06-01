@@ -22,8 +22,8 @@ if (!empty($_GET['err'])){
     }
 }
 ?>
-
-<div class="container w-25 m-auto text-black">
+<h1 class="text-center text-black mt-5">Změna hesla</h1>
+<div class="container w-25 mx-auto text-black">
     <h5 class="m-1"><?php if (!empty($_GET['success'])){ echo "Vaše heslo bylo změněno"; } ?></h5>
     <h6 class="m-1 text-danger"><?php echo $alert?></h6>
     <form method="post" action="ctrl/changePasswordController">

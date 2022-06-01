@@ -12,8 +12,8 @@ $usersDB = new UsersDB();
 $user = $usersDB->fetchById($_SESSION['lg_email'])[0];
 
 ?>
-
-<div class="container w-25 m-auto text-black">
+<h1 class="text-center text-black mt-5">Informace o uživateli</h1>
+<div class="container w-25 mx-auto text-black">
     <h5 class="m-1"><?php if (!empty($_GET['success'])){ echo "Vaše údaje  byly úspěšně změněny (celkem ".$_GET['success'].")"; } ?></h5>
     <?php foreach ($errorMsg as $msg): ?>
         <h6 class="m-1 text-danger"><?php echo $msg ?></h6>
